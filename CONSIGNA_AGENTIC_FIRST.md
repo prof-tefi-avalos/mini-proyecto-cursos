@@ -228,7 +228,7 @@ En Postman: `GET /api/cursos`, mandala varias veces seguidas y mirá la pestaña
 
 ## Checklist final
 
-Cuando termines las 5 partes, tu proyecto debería tener esta estructura (además de lo que ya tenías de los Bloques 01-06):
+Cuando termines las 5 partes, tu proyecto debería tener esta estructura (además de lo que ya tenías):
 
 ```
 proyecto-clase-8/
