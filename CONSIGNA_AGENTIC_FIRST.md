@@ -4,8 +4,6 @@ Tu API de cursos ya cumple los Bloques 01 a 06 (rutas, `express.json()`, logger,
 
 **No te doy el código completo a propósito** — cada parte tiene pistas escalonadas: probá primero con la pista corta, y si te trabás, mirá la siguiente. La idea es que llegues vos a la solución, no que la copies.
 
-Un dato importante: tu `middleware/errorHandler.js` actual usa una **función** (`crearError(message, status)`), no una clase — seguí con ese mismo estilo en todo lo que sigue, no hace falta `class`/`extends` en ningún momento.
-
 ---
 
 ## Parte 1 — Endpoint con intención de negocio
