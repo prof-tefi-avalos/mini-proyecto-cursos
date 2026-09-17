@@ -14,10 +14,11 @@ Un dato importante: tu `middleware/errorHandler.js` actual usa una **función** 
 
 **Pista inicial:**
 - Sumale dos campos a cada curso de `controllers/cursos.controller.js`: `cupos` e `inscriptos` (por ejemplo, `cupos: 30, inscriptos: 12` en uno, y otro curso con `inscriptos` igual a `cupos` para poder probar el caso sin cupo).
-- Pensá qué método HTTP corresponde para "hacer algo que no es leer, ni crear un recurso nuevo, ni reemplazar uno entero". ¿`GET`? ¿`POST`? ¿A qué URL — `/cursos/:id` o algo más específico?
+- "Inscribir un alumno" no es leer (`GET`), no es reemplazar el curso entero (`PUT`), no es actualizar un campo suelto (`PATCH`) y no es borrar (`DELETE`). Cuando una acción no encaja en ninguna de esas categorías clásicas, ¿cuál es el verbo HTTP que se usa por default en REST para "ejecutar un comando" en el servidor? ¿A qué URL — `/cursos/:id` o algo más específico que dejar clara la acción?
 
 **Si te trabaste:**
-- El método es `POST`, y la URL debería dejar clara la acción: `/:id/inscribir` (relativo al router, así que termina siendo `/api/cursos/:id/inscribir`).
+- El método es `POST` — mismo verbo que usás para crear un curso nuevo, pero acá no estás creando un curso, estás ejecutando una acción de negocio (podés pensarlo como que "creás" una inscripción, aunque no la modelamos como su propio recurso). Es el mismo patrón que vas a ver en APIs reales: `POST /orders/:id/cancel`, `POST /cuentas/:id/cerrar`.
+- La URL debería dejar clara la acción: `/:id/inscribir` (relativo al router, así que termina siendo `/api/cursos/:id/inscribir`).
 - La función del controller necesita: buscar el curso por id (ya sabés hacer esto, es igual que en `obtenerCurso`), fijarse si `inscriptos >= cupos`, y si hay cupo, sumar 1 a `inscriptos` y devolver el curso actualizado.
 - ¿Qué status corresponde si no hay cupo? Pensalo en términos de "la operación choca con el estado actual del recurso" — no es un 400 (el request está bien armado), no es un 404 (el curso existe).
 
